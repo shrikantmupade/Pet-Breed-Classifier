@@ -18,7 +18,16 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # --- LOAD MODEL & CLASS MAP ---
 # Load model once at startup (Efficient!)
 print("Loading Model...")
-model = load_model('animal_breed_model.h5')
+model = None
+
+def get_model():
+    global model
+    if model is None:
+        # Only load the model when we actually need it
+        model = load_model('animal_breed_model.h5')
+        print("Model loaded successfully!")
+    return model
+#model = load_model('animal_breed_model.h5')
 
 with open('class_indices.json', 'r') as f:
     indices = json.load(f)
@@ -52,6 +61,11 @@ def predict():
         img_array = np.expand_dims(img_array, axis=0)
         img_array = preprocess_input(img_array)
 
+        # Add this line inside your function before prediction
+        model = get_model()
+
+        # Then your existing code runs...
+        pred = model.predict(img_array)
         # 3. Predict
         predictions = model.predict(img_array)
         predicted_index = np.argmax(predictions)
@@ -65,4 +79,5 @@ def predict():
                                image_url=filepath)
 
 if __name__ == '__main__':
+
     app.run(debug=True)
