@@ -171,11 +171,14 @@
         <div class="loader" id="loader"></div>
 
         {% if prediction %}
-        <div class="result">
-            Result: {{ prediction }} 🐶🐱
-        </div>
+    <div class="result" style="display: block;">
+        {% if image_url %}
+        <img src="{{ image_url }}" style="max-width: 200px; border-radius: 10px; display: block; margin: 0 auto 15px auto;">
         {% endif %}
+        
+        Result: {{ prediction }} 🐶🐱
     </div>
+{% endif %}
 
     <script>
         // JavaScript to handle image preview without distortion
@@ -201,3 +204,4 @@
 
 </body>
 </html>
+
