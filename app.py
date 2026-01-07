@@ -36,7 +36,7 @@ labels = {v: k for k, v in indices.items()}
 
 # --- ROUTES ---
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     # Show the homepage
     return render_template('index.html', result=None)
@@ -81,3 +81,4 @@ def predict():
 if __name__ == '__main__':
 
     app.run(debug=True)
+
