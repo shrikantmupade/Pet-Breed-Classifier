@@ -90,7 +90,7 @@ If you want to run this app on your own computer:
 
 1. **Clone the repository**
     ```bash
-    git clone [https://github.com/shrikantmupade/Pet-Breed-Classifier.git](https://github.com/shrikantmupade/Pet-Breed-Classifier.git)
+    git clone https://github.com/shrikantmupade/Pet-Breed-Classifier.git
     cd Pet-Breed-Classifier
     ```
 
