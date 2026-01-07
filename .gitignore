@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# Virtual Environments
+venv/
+env/
+
+# Environment variables (Crucial for security!)
+.env
+
+# OS generated files
+.DS_Store
